@@ -1,0 +1,146 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: rgba(0, 0, 0, 0.2);
+	max-width: 100vw;
+	max-height: 100vh;
+	position: relative;
+}
+
+span.subject,
+span.group{
+	color:#7671DD
+}
+
+.bckg{
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.tableWrapper{
+	background-color: white;
+	border-radius: 1rem;
+	padding: 1rem;
+	border:1px solid rgba(0, 0, 0, 0);
+		/* border: 1px solid rgba(0, 0, 0, 0.2); */
+}
+
+thead th{
+	height: 100px;
+}
+
+.tableRow>*{
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+}
+
+th{
+	width: 250px;
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border: 1px solid rgba(0, 0, 0, 0.2); */
+}
+tr+tr{
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	
+}
+thead tr{
+		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+th+th{
+	border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.hoverOn:hover{
+	background-color: rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.smallTh{
+	width: 50px;
+}
+.nameTh{
+	min-width: 300px;
+}
+
+.nameTh.nameItem{
+justify-content: start;
+}
+
+.subjectBlock{
+	display: grid;
+grid-template-areas: 'subjectName date';
+gap: 1rem;
+
+}
+
+.subjectName{
+grid-area: subjectName;
+
+}
+
+.date{
+	grid-area: date;
+	align-self: start;
+}
+
+.dateOnly{
+	grid-column: span 2;
+}
+
+.halfVis{
+	color: rgba(0, 0, 0, 0.3);
+}
+
+.active.active{
+	background-color: white;
+	z-index: 20;
+	cursor: default;
+}
+
+#toolTip{
+  position: fixed;
+  background: white;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 90%;
+  pointer-events: none;
+	z-index: 20;
+  width: 700px;
+  height: 320px;
+}
+#toolTip:hover{
+	background-color: black;
+}
+#arrow {
+  position: absolute;
+  background: #333;
+  width: 30px;
+  height: 30px;
+  transform: rotate(45deg);
+}
+
+.toolTipBckg{
+	position: fixed;
+	left: 0;
+	top: 0;
+	/* z-index: 10; */
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.1);
+}
