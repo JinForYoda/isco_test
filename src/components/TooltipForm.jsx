@@ -36,8 +36,6 @@ export default function TooltipForm({ target, setTarget, selectedStudent, setSel
 
 	const submit = (e) => {
 		e.preventDefault()
-
-
 		setSelectedStudent({
 			id: selectedStudent.id,
 			fullname: selectedStudent.fullname,
@@ -47,9 +45,6 @@ export default function TooltipForm({ target, setTarget, selectedStudent, setSel
 			},
 			changed: true
 		})
-
-		// setTarget()
-		// console.log(selectedStudent, target.id + target.getAttribute('subject'));
 	}
 
 	return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Students from './Students';
 import Subjects from './Subjects';
 import Table from 'react-bootstrap/Table'

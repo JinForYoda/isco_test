@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { computePosition, flip, shift, arrow, offset } from 'https://cdn.skypack.dev/@floating-ui/dom@0.2.0';
+import { computePosition, flip, shift, arrow, offset } from '@floating-ui/dom';
 import TooltipForm from './TooltipForm';
 
 

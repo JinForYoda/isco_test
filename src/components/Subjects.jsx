@@ -1,8 +1,5 @@
 import React, { useContext } from 'react';
 import { UniContext } from '../Context';
-import { getFullDate } from './utils/getFullDate';
-
-
 
 export default function Subjects() {
 	const { subjects } = useContext(UniContext)
