@@ -6,13 +6,14 @@ import { Portal } from 'react-portal'
 
 export default function Students() {
 	const { students, subjects } = useContext(UniContext)
+	const [selectedStudent, setSelectedStudent] = useState({})
 	const [target, setTarget] = useState()
 
 	useEffect(() => {
-		if (target) target.classList.toggle('active')
+		if (target) target.closest('th').classList.toggle('active')
 
 		return () => {
-			if (target) target.classList.toggle('active')
+			if (target) target.closest('th').classList.toggle('active')
 		}
 	}, [target])
 	return <>{
@@ -22,11 +23,13 @@ export default function Students() {
 				<th className='nameTh nameItem'><h5 >{student.fullname}</h5></th>
 				{subjects.map(subject =>
 					<th onClick={(e) => {
-						setTarget(e.target);
-					}} key={subject.id} className='hoverOn' >
+						if (e.target.id === '0' || e.target.closest('th').id === '0') return
+						setTarget(e.target.closest('th'));
+						setSelectedStudent(student)
+					}} key={subject.date + subject.name} className={subject.date !== '0' ? 'hoverOn' : ''} id={subject.date} subject={subject.name}>
 
-						<h5 className={student.marks[subject.id] === 'Н' ? 'halfVis' : ''}>
-							{student.marks[subject.id]}
+						<h5 className={student.marks[subject.date + subject.name] === 'Н' ? 'halfVis' : ''}>
+							{student.marks[subject.date + subject.name]}
 						</h5>
 
 					</th>
@@ -35,7 +38,7 @@ export default function Students() {
 			</tr>
 		)
 	}
-		{target && < Portal node={document.getElementById('root')} > <SmartTooltip target={target} setTarget={setTarget} /></Portal >}
+		{target && < Portal node={document.getElementById('root')} > <SmartTooltip selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} target={target} setTarget={setTarget} /></Portal >}
 
 	</>
 }

@@ -8,64 +8,61 @@ import './styles/style.css'
 
 
 function App() {
+
 	const [subjects, setSubjects] = useState([
 		{
-			name: 'Системный подход к анализу',
-			id: 1
+			date: '22.01.22',
+			name: 'Системный подход к анализу'
 		},
 		{
-			name: 'Несистемный подход к анализу',
-			id: 2
+			date: '25.01.22',
+			name: 'Несистемный подход к анализу'
 		},
 		{
-			name: '',
-			id: 3
+			date: '29.01.22',
+			name: ''
+		},
+		{
+			date: '0',
+			name: 'Отсутствий'
+		},
+		{
+			date: '0',
+			name: 'Баллы по практ. занятиям'
+		},
+		{
+			date: '0',
+			name: 'Итоговая оценка'
 		},
 
-		{
-			name: 'Отсутствий',
-			id: 'absent'
-		},
-		{
-			name: 'Баллы по практ. занятиям',
-			id: 'practice'
-		},
-		{
-			name: 'Итоговая оценка',
-			id: 'finalMark'
-		},
-
-	]
-	)
+	])
 
 	const [students, setStudents] = useState([
 		{
 			id: 1,
 			fullname: 'Васильева Анна Игоревна',
 			marks: {
-				1: 5,
-				3: 4,
-				'practice': 70,
-				'finalMark': 150
-			},
-			extraMarks: {
-				absent: 0,
-				practice: 72,
-			},
-			finalMark: 179
+				[subjects[0].date + subjects[0].name]: 5,
+				[subjects[4].date + subjects[4].name]: 42,
+				[subjects[5].date + subjects[5].name]: 101
+			}
 		},
 		{
 			id: 2,
 			fullname: 'Иванова Анна Игоревна',
 			marks: {
-
+				[subjects[1].date + subjects[1].name]: 3,
+				[subjects[3].date + subjects[3].name]: 5,
+				[subjects[5].date + subjects[5].name]: 70
 			}
 		},
 		{
 			id: 3,
 			fullname: 'Барсукова Юлия Игоревна',
 			marks: {
-
+				[subjects[0].date + subjects[0].name]: 5,
+				[subjects[1].date + subjects[1].name]: 'Н',
+				[subjects[5].date + subjects[5].name]: 50
 			}
 		},
 		{

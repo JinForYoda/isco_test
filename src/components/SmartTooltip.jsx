@@ -1,20 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { computePosition, flip, shift, arrow, offset } from 'https://cdn.skypack.dev/@floating-ui/dom@0.2.0';
-import { Button } from 'bootstrap';
+import TooltipForm from './TooltipForm';
 
 
-export default function SmartTooltip({ target, setTarget }) {
-
+export default function SmartTooltip({ selectedStudent, setSelectedStudent, target, setTarget }) {
 	const tooltip = useRef()
 	const arrowElement = useRef()
 
 	const closeToolTip = (e) => {
-
-		console.log(e.target, tooltip.current);
-		e.target !== tooltip.current && setTarget()
+		!tooltip.current.contains(e.target) && setTarget()
 	}
 
 	useEffect(() => {
+		tooltip.current.hidden = false
+
 		computePosition(target, tooltip.current, {
 			placement: 'right',
 			middleware: [
@@ -26,10 +25,9 @@ export default function SmartTooltip({ target, setTarget }) {
 		}).then(({ x, y, placement, middlewareData }) => {
 			Object.assign(tooltip.current.style, {
 				left: `${x}px`,
-				top: `${y}px`,
+				top: `${y + 100}px`,
 			});
 
-			// Accessing the data
 			const { x: arrowX, y: arrowY } = middlewareData.arrow;
 
 			const staticSide = {
@@ -41,20 +39,20 @@ export default function SmartTooltip({ target, setTarget }) {
 
 			Object.assign(arrowElement.current.style, {
 				left: arrowX != null ? `${arrowX}px` : '',
-				top: arrowY != null ? `${arrowY}px` : '',
+				top: arrowY != null ? `${arrowY - 100}px` : '',
 				right: '',
 				bottom: '',
 				[staticSide]: '-15px',
 			});
-		});
 
+		});
 	}, [target])
 
 
 	return target
-		? <div onClick={closeToolTip} className='toolTipBckg'>< div onClick={(e) => { e.stopPropagation() }} ref={tooltip} id='toolTip' role='tooltip'  >
+		? <div onClick={closeToolTip} className='toolTipBckg'>< div hidden={true} ref={tooltip} id='toolTip' role='tooltip' className='setVisible' >
 			<div ref={arrowElement} id="arrow"></div>
-
+			<TooltipForm target={target} setTarget={setTarget} selectedStudent={selectedStudent} setSelectedStudent={setSelectedStudent} />
 		</div >
 		</div>
 		: null
