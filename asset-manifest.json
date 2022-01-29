@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/isco_test/static/css/main.cd5cb7fb.css",
+    "main.js": "/isco_test/static/js/main.b3bc7fa9.js",
+    "index.html": "/isco_test/index.html",
+    "main.cd5cb7fb.css.map": "/isco_test/static/css/main.cd5cb7fb.css.map",
+    "main.b3bc7fa9.js.map": "/isco_test/static/js/main.b3bc7fa9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd5cb7fb.css",
+    "static/js/main.b3bc7fa9.js"
+  ]
+}
