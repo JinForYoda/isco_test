@@ -23,10 +23,9 @@ export default function Students() {
 				<th className='nameTh nameItem'><h5 >{student.fullname}</h5></th>
 				{subjects.map(subject =>
 					<th onClick={(e) => {
-						if (e.target.id === '0' || e.target.closest('th').id === '0') return
 						setTarget(e.target.closest('th'));
 						setSelectedStudent(student)
-					}} key={subject.date + subject.name} className={subject.date !== '0' ? 'hoverOn' : ''} id={subject.date} subject={subject.name}>
+					}} key={subject.date + subject.name} className='hoverOn' id={subject.date} subject={subject.name}>
 
 						<h5 className={student.marks[subject.date + subject.name] === 'Н' ? 'halfVis' : ''}>
 							{student.marks[subject.date + subject.name]}

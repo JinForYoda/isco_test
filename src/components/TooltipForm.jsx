@@ -8,6 +8,9 @@ export default function TooltipForm({ target, setTarget, selectedStudent, setSel
 	const [value, setValue] = useState('')
 	const [isEnable, setIsEnable] = useState(true)
 	const checkBox = useRef()
+
+	const staticSubjects = ['Итоговая оценка', 'Баллы по практ. занятиям', 'Отсутствий']
+
 	useEffect(() => {
 		target.children[0].textContent === 'Н' && setIsEnable(false)
 		selectedStudent.marks[target.id + target.getAttribute('subject')] && setValue(selectedStudent.marks[target.id + target.getAttribute('subject')])
@@ -19,10 +22,20 @@ export default function TooltipForm({ target, setTarget, selectedStudent, setSel
 
 
 	const validate = (e) => {
-		const re = /^[1-5\b]$/;
+		let re
+		switch (staticSubjects.includes(target.getAttribute('subject'))) {
+			case true:
+				re = /^[1-9\b]+$/
+				break
+			default:
+				re = /^[1-5\b]$/
+		}
+
+
 		if (e.target.value === '' || re.test(e.target.value)) {
 			setValue(e.target.value)
 		}
+
 	}
 
 	useEffect(() => {
@@ -54,13 +67,13 @@ export default function TooltipForm({ target, setTarget, selectedStudent, setSel
 				<h5 className='halfVis'>Студент</h5>
 				<h5>{selectedStudent.fullname}</h5>
 			</div>
-			<div className='formBox__Field'>
+			{target.id !== '0' && <div className='formBox__Field'>
 				<h5 className='halfVis'>Дата</h5>
 				<h5>{target.id}</h5>
-			</div>
+			</div>}
 
-			<Form onSubmit={submit}>
-				<Form.Group className="mb-3" controlId="formBasicCheckbox">
+			<Form className='form' onSubmit={submit}>
+				<Form.Group hidden={staticSubjects.includes(target.getAttribute('subject'))} className="mb-3" controlId="formBasicCheckbox">
 					<Form.Check ref={checkBox} type="checkbox" checked={!isEnable} onChange={(e) => {
 						isEnable ? setIsEnable(false) : setIsEnable(true)
 					}} label="Не присутствовал" />
