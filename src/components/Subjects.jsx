@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { UniContext } from '../Context';
+import { Test1_Context } from '../Context';
 
 export default function Subjects() {
-	const { subjects } = useContext(UniContext)
+	const { subjects } = useContext(Test1_Context)
 
 	return subjects.map((subject) =>
 		<th key={subject.date + subject.name} className="subjectBlock">{

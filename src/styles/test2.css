@@ -1,0 +1,12 @@
+.toggleBox{
+	width: 40vw;
+	display: flex;
+	justify-content: space-around;
+}
+
+.toggleBtn.toggleBtn{
+
+	flex: 0 0 200px;
+	border-radius: 0px;
+	border: 1px solid white;
+}

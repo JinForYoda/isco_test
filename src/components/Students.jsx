@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
-import { UniContext } from '../Context';
+import { Test1_Context } from '../Context';
 import SmartTooltip from './SmartTooltip';
 import { Portal } from 'react-portal'
 
 export default function Students() {
-	const { students, subjects } = useContext(UniContext)
+	const { students, subjects } = useContext(Test1_Context)
 	const [selectedStudent, setSelectedStudent] = useState({})
 	const [target, setTarget] = useState()
 

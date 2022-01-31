@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import Form from 'react-bootstrap/Form'
 import { Button } from 'react-bootstrap';
-import { UniContext } from '../Context';
+import { Test1_Context } from '../Context';
 
 export default function TooltipForm({ target, setTarget, selectedStudent, setSelectedStudent }) {
-	const { students, setStudents } = useContext(UniContext)
+	const { students, setStudents } = useContext(Test1_Context)
 	const [value, setValue] = useState('')
 	const [isEnable, setIsEnable] = useState(true)
 	const checkBox = useRef()
