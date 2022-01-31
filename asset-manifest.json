@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/isco_test/static/css/main.27406c5c.css",
-    "main.js": "/isco_test/static/js/main.aba615d5.js",
+    "main.css": "/isco_test/static/css/main.3daaa29f.css",
+    "main.js": "/isco_test/static/js/main.09e41111.js",
     "index.html": "/isco_test/index.html",
-    "main.27406c5c.css.map": "/isco_test/static/css/main.27406c5c.css.map",
-    "main.aba615d5.js.map": "/isco_test/static/js/main.aba615d5.js.map"
+    "main.3daaa29f.css.map": "/isco_test/static/css/main.3daaa29f.css.map",
+    "main.09e41111.js.map": "/isco_test/static/js/main.09e41111.js.map"
   },
   "entrypoints": [
-    "static/css/main.27406c5c.css",
-    "static/js/main.aba615d5.js"
+    "static/css/main.3daaa29f.css",
+    "static/js/main.09e41111.js"
   ]
 }
